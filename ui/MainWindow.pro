@@ -13,8 +13,15 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    configdialog.cpp \
+    detectframe.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    configdialog.h \
+    detectframe.h
 
-FORMS    += mainwindow.ui
+FORMS    += \
+    Main \
+    configdialog.ui \
+    detectframe.ui
