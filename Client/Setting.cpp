@@ -2,30 +2,29 @@
 #include <Windows.h>
 
 
-Setting::Setting()
+CSetting::CSetting()
 {
 }
 
 
-Setting::~Setting()
+CSetting::~CSetting()
 {
 }
 
-Setting& Setting::Get()
+CSetting& CSetting::Get()
 {
-	static Setting m_setting;
+	static CSetting m_setting;
 	return m_setting;
 }
 
-
-int Setting::LoadConfig(const std::string &  file_path)
+// º”‘ÿ≈‰÷√
+int CSetting::LoadConfig(const std::string &  file_path)
 {
 	return 0;
 }
 
-
-
-void Setting::SaveConfig(const std::string&  file_path)
+// ±£¥Ê≈‰÷√
+void CSetting::SaveConfig(const std::string&  file_path)
 {
 
 }

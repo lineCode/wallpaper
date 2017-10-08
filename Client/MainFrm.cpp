@@ -1,11 +1,8 @@
-
-// MainFrm.cpp : CMainFrame 类的实现
-//
-
 #include "stdafx.h"
 #include "Wallpaper.h"
-
 #include "MainFrm.h"
+#include "ConfigForm.h"
+#include "WallpaperConfigForm.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -18,6 +15,15 @@ IMPLEMENT_DYNAMIC(CMainFrame, CFrameWnd)
 BEGIN_MESSAGE_MAP(CMainFrame, CFrameWnd)
 	ON_WM_CREATE()
 	ON_WM_SETFOCUS()
+	ON_COMMAND(ID_CONFIG_SETTING, &CMainFrame::OnConfigSetting)
+	ON_COMMAND(ID_CONFIG_SEARCH_IMAGE, &CMainFrame::OnConfigSearchImage)
+	ON_COMMAND(ID_CONFIG_EXIT, &CMainFrame::OnConfigExit)
+	ON_COMMAND(ID_IMAGEPROCESS_OCR, &CMainFrame::OnImageprocessOcr)
+	ON_COMMAND(ID_IMAGEPROCESS_ANALYZE, &CMainFrame::OnImageprocessAnalyze)
+	ON_COMMAND(ID_WALLPAPER_CONFIG, &CMainFrame::OnWallpaperConfig)
+	ON_COMMAND(ID_WALLPAPER_RUN, &CMainFrame::OnWallpaperRun)
+	ON_COMMAND(ID_HELP_HOMEPAGE, &CMainFrame::OnHelpHomepage)
+	ON_COMMAND(ID_HELP_HELP, &CMainFrame::OnHelpHelp)
 END_MESSAGE_MAP()
 
 static UINT indicators[] =
@@ -119,3 +125,57 @@ BOOL CMainFrame::OnCmdMsg(UINT nID, int nCode, void* pExtra, AFX_CMDHANDLERINFO*
 	return CFrameWnd::OnCmdMsg(nID, nCode, pExtra, pHandlerInfo);
 }
 
+void CMainFrame::OnConfigSetting()
+{
+	CConfigForm dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::OnConfigSearchImage()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CMainFrame::OnConfigExit()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CMainFrame::OnImageprocessOcr()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CMainFrame::OnImageprocessAnalyze()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CMainFrame::OnWallpaperConfig()
+{
+	CWallpaperConfigForm dlg;
+	dlg.DoModal();
+}
+
+
+void CMainFrame::OnWallpaperRun()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CMainFrame::OnHelpHomepage()
+{
+	// TODO: Add your command handler code here
+}
+
+
+void CMainFrame::OnHelpHelp()
+{
+	// TODO: Add your command handler code here
+}

@@ -103,27 +103,31 @@ IDR_MAINFRAME MENU
 BEGIN
     POPUP "配置"
     BEGIN
-        MENUITEM "搜索图片",                        ID_32771
+        MENUITEM "设置参数",                        ID_CONFIG_SETTING
         MENUITEM SEPARATOR
-        MENUITEM "设置参数",                        ID_32772
+        MENUITEM "搜索图片",                        ID_CONFIG_SEARCH_IMAGE
         MENUITEM SEPARATOR
-        MENUITEM "退出",                          ID_32773
+        MENUITEM "退出",                          ID_CONFIG_EXIT
     END
     POPUP "图像处理"
     BEGIN
-        MENUITEM "相似分析",                        ID_32774
+        MENUITEM "相似分析",                        ID_IMAGEPROCESS_ANALYZE
         MENUITEM SEPARATOR
-        MENUITEM "OCR识别",                       ID_32775
+        MENUITEM "OCR识别",                       ID_IMAGEPROCESS_OCR
     END
     POPUP "壁纸"
     BEGIN
-        MENUITEM "配置",                          ID_32776
+        MENUITEM "配置",                          ID_WALLPAPER_CONFIG
         MENUITEM SEPARATOR
-        MENUITEM "运行",                          ID_32778
+        MENUITEM "运行",                          ID_WALLPAPER_RUN
     END
     POPUP "帮助(&H)"
     BEGIN
-        MENUITEM "关于 Wallpaper(&A)...",         ID_APP_ABOUT
+        MENUITEM "主页",                          ID_HELP_HOMEPAGE
+        MENUITEM SEPARATOR
+        MENUITEM "帮助",                          ID_HELP_HELP
+        MENUITEM SEPARATOR
+        MENUITEM "关于(&A)...",                   ID_HELP_ABOUT
     END
 END
 
@@ -155,22 +159,44 @@ END
 
 IDD_ABOUTBOX DIALOGEX 0, 0, 170, 62
 STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "关于 Wallpaper"
+CAPTION "关于 相片管理"
 FONT 9, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,21,20
-    LTEXT           "Wallpaper，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
+    ICON            IDR_MAINFRAME,IDC_STATIC,14,14,20,20
+    LTEXT           "相片股那里，1.0 版",IDC_STATIC,42,14,114,8,SS_NOPREFIX
     LTEXT           "Copyright (C) 2017",IDC_STATIC,42,26,114,8
     DEFPUSHBUTTON   "确定",IDOK,113,41,50,14,WS_GROUP
 END
 
-IDD_CONFIGFORM DIALOG 0, 0, 320, 200
-STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "Dialog"
-FONT 8, "MS Shell Dlg"
+IDD_CONFIGFORM DIALOGEX 0, 0, 275, 146
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "配置窗体"
+FONT 8, "MS Shell Dlg", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,209,179,50,14
-    PUSHBUTTON      "Cancel",IDCANCEL,263,179,50,14
+    DEFPUSHBUTTON   "保存",IDOK,164,125,44,14
+    PUSHBUTTON      "取消",IDCANCEL,217,125,44,14
+    PUSHBUTTON      "...",IDC_BUTTON1,225,14,37,14
+    LTEXT           "",IDC_IMGFOLDER,63,15,130,12
+    LTEXT           "图片目录：",IDC_STATIC,7,15,48,14
+END
+
+IDD_WALLPAPER_CONFIG DIALOGEX 0, 0, 309, 176
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "壁纸设置"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "保存",IDOK,198,155,50,14
+    PUSHBUTTON      "取消",IDCANCEL,252,155,50,14
+    LTEXT           "显示类型：",IDC_STATIC,10,39,41,8
+    COMBOBOX        IDC_DISPLAYTYPE,52,36,72,30,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "时间间隔：",IDC_STATIC,10,63,41,8
+    COMBOBOX        IDC_HOUR,52,60,29,96,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "时",IDC_STATIC,85,63,9,8
+    COMBOBOX        IDC_SECOND,144,60,29,99,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "秒",IDC_STATIC,177,63,9,8
+    COMBOBOX        IDC_MINUTE,97,60,29,99,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "分",IDC_STATIC,131,63,9,8
+    CONTROL         "是否自动运行",IDC_AUTORUN,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,85,64,10
 END
 
 
@@ -232,12 +258,41 @@ BEGIN
     IDD_CONFIGFORM, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 313
+        RIGHTMARGIN, 268
         TOPMARGIN, 7
-        BOTTOMMARGIN, 193
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_WALLPAPER_CONFIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 302
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 169
     END
 END
 #endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_CONFIGFORM AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_ABOUTBOX AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_WALLPAPER_CONFIG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
 
 
 /////////////////////////////////////////////////////////////////////////////

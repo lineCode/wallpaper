@@ -1,30 +1,30 @@
 #pragma once
 
+#include "common.h"
 #include <string>
 
 struct ImageConfig {
-	std::wstring folder_path;
-	int display_type;
-	bool is_auto_run;
-	int time_span;
+	int display_type;			// 桌面壁纸类型
+	bool is_auto_run;			// 是否自动运行
+	int time_span;				// 切换壁纸时间间隔
 };
 
 /*
  * 全局配置类
-
 */
-class Setting
+class CSetting
 {
 public:
-	Setting();
-	Setting& Get();
-	~Setting();
+	CSetting();
+	static CSetting& Get();
+	~CSetting();
 
 	int LoadConfig(const std::string &  file_path);
 	void SaveConfig(const std::string&  file_path);
 
-private:
-	ImageConfig data;
+public:
+	xstring  m_imageFolder;
+	ImageConfig wallpaper;
 
 };
 

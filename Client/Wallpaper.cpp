@@ -17,7 +17,7 @@
 // CWallpaperApp
 
 BEGIN_MESSAGE_MAP(CWallpaperApp, CWinApp)
-	ON_COMMAND(ID_APP_ABOUT, &CWallpaperApp::OnAppAbout)
+	ON_COMMAND(ID_HELP_ABOUT, &CWallpaperApp::OnAppAbout)
 END_MESSAGE_MAP()
 
 
@@ -99,10 +99,6 @@ BOOL CWallpaperApp::InitInstance()
 		WS_OVERLAPPEDWINDOW | FWS_ADDTOTITLE, NULL,
 		NULL);
 
-
-
-
-
 	// 唯一的一个窗口已初始化，因此显示它并对其进行更新
 	pFrame->ShowWindow(SW_SHOW);
 	pFrame->UpdateWindow();
@@ -155,8 +151,8 @@ END_MESSAGE_MAP()
 // 用于运行对话框的应用程序命令
 void CWallpaperApp::OnAppAbout()
 {
-	CAboutDlg aboutDlg;
-	aboutDlg.DoModal();
+	CAboutDlg dlg;
+	dlg.DoModal();
 }
 
 // CWallpaperApp 消息处理程序

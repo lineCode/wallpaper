@@ -43,6 +43,17 @@ protected:
 	afx_msg void OnSetFocus(CWnd *pOldWnd);
 	DECLARE_MESSAGE_MAP()
 
+public:
+	afx_msg void OnConfigSetting();
+	afx_msg void OnConfigSearchImage();
+	afx_msg void OnConfigExit();
+	afx_msg void OnImageprocessOcr();
+	afx_msg void OnImageprocessAnalyze();
+	afx_msg void OnWallpaperConfig();
+	afx_msg void OnWallpaperRun();
+	afx_msg void OnHelpHomepage();
+	afx_msg void OnHelpHelp();
+	afx_msg void OnHelpAbout();
 };
 
 
